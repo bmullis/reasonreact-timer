@@ -78,12 +78,16 @@ let make = () => {
           </div> :
           <div className="timer__butons">
             {
-              state.seconds == 30 ?
-                <Button label="start" onClick={_event => dispatch(Start)} /> :
-                <>
-                  <Button label="start" onClick={_event => dispatch(Start)} />
-                  <Button label="reset" onClick={_event => dispatch(Reset)} />
-                </>
+              switch (state.seconds) {
+              | 30 => {<Button label="start" onClick={_event => dispatch(Start)} />}
+              | 0 => {<Button label="reset" onClick={_event => dispatch(Reset)} />}
+              | _ => {
+                  <>
+                    <Button label="start" onClick={_event => dispatch(Start)} />
+                    <Button label="reset" onClick={_event => dispatch(Reset)} />
+                  </>
+                }
+              } 
             }
           </div>
       }
