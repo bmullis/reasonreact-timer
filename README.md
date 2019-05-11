@@ -1,4 +1,4 @@
-# pomodoro-timer
+# ReasonReact Timer
 
 ## Run Project
 
